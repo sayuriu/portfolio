@@ -1,0 +1,42 @@
+#def struct HTMLPage view 
+Container
+    Header @Flex-SpaceBetween
+        Title
+        Menu
+            @State expanded
+                :loop option of MenuOptions
+                    option 
+            @State collasped
+            
+    Body @Scroll-Align-Y 
+        Screen1 @Screen-Flex-Horizontal
+            Introduction
+            ArtLive2D @Renderer, @WebGL
+                :button
+                    @Sprite main {anim}
+                @SVG overlay "cut diagonal /"
+                :button
+                    @Sprite alt {anim}
+        Screen2 @Screen
+            BriefStuffs
+                p'struct
+        Screen3 @Screen
+            ProjectShowcase
+                :loop project of ShowcaseProject
+                    ProjectIcon
+                    ProjectName
+                    ProjectDesc
+                    ProjectHoverFX
+        Footer
+            ContactInfo
+
+#enddef
+
+#def logic @Link-View
+    @Sprite alt onClick for {#set} time ->　call ThemeChange()
+    #def fn ThemeChange()
+        should change color pallette
+        visible some links
+            visible anims
+    #enddef
+#enddef
