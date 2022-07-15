@@ -95,6 +95,7 @@ const Anchor: FC<AnchorProps> = ({ to, children, icon, label }) => {
         position={"relative"}
         width={"80%"}
         as={'a'}
+        //@ts-ignore
         href={to}
         display={"flex"}
         gap={5}
